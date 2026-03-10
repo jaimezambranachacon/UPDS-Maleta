@@ -107,7 +107,9 @@
     const components = [
         {
             title: "WhatsApp Group (Efecto Pulse)",
-            html: `<div class="anim-fade-in" style="animation-delay: 0.2s;">
+            html: `
+            
+<div class="anim-fade-in" style="animation-delay: 0.2s;">
     <a class="btn btn-lg d-flex align-items-center justify-content-center shadow" 
        href="https://chat.whatsapp.com/HhxdY2mIZy46uYpeF9ATaP" 
        target="_blank" 
@@ -115,25 +117,91 @@
         <i class="fab fa-whatsapp fa-3x mr-3"></i>
         <span style="font-size: 1.5rem; font-weight: 900;">GRUPO DE WHATSAPP</span>
     </a>
-</div>`
+</div>
+
+`
         },
         {
             title: "Ficha del Docente (Hover Grow)",
-            html: `<div class="card shadow hover-grow" style="border-radius: 20px; overflow: hidden; border: none; max-width: 800px; margin: auto;">
-    <div class="text-center p-3" style="background: #f8f9fa;">
-        <h3 style="color: #003366; font-weight: 800;">Simulador 3D & Realidad Aumentada</h3>
-    </div>
-    <a href="https://www.facebook.com/zambranachaconjaime" target="_blank">
-        <img src="https://live.staticflickr.com/65535/53442381820_96be63437b_k.jpg" class="img-fluid" alt="Banner">
-    </a>
-    <div class="p-4 text-center" style="background: #003366;">
-        <div class="d-flex flex-wrap justify-content-center" style="gap: 10px;">
-            <a href="#" class="btn btn-light font-weight-bold">DOCENTE</a>
-            <a href="#" class="btn btn-outline-light"><i class="fab fa-youtube"></i></a>
-            <a href="#" class="btn btn-outline-light"><i class="fab fa-gitlab"></i></a>
+            html: `
+
+<div class="container-fluid p-0" style="font-family: 'Segoe UI', Arial, sans-serif !important; display: flex !important; justify-content: center !important;">
+    
+    <div class="card shadow-lg border-0" 
+         style="width: 95% !important; max-width: 850px !important; border-radius: 25px !important; overflow: hidden !important; background-color: #ffffff !important; border: 1px solid #e9ecef !important; margin: 20px 0 !important;">
+        
+        <div class="p-4 text-center" style="background-color: #003366 !important; border-bottom: 4px solid #00aaff !important;">
+            <h2 style="color: #ffffff !important; font-weight: 800 !important; font-size: calc(1.2rem + 0.5vw) !important; margin-bottom: 5px !important; text-transform: uppercase !important; letter-spacing: 1px !important;">
+                PROYECTO FORMATIVO
+            </h2>
+            <p style="color: #ffffff !important; font-weight: 300 !important; font-size: 1rem !important; opacity: 0.9 !important; margin-bottom: 0 !important;">
+                Simulador 3D & Realidad Aumentada Móvil
+            </p>
+        </div>
+
+        <div style="background-color: #f8f9fa !important; text-align: center;">
+            <a href="https://www.facebook.com/zambranachaconjaime" target="_blank" style="display: block; line-height: 0;">
+                <img src="https://live.staticflickr.com/65535/53442381820_96be63437b_k.jpg" 
+                     class="img-fluid" 
+                     alt="Banner Docente" 
+                     style="width: 100% !important; max-height: 380px !important; object-fit: cover !important;">
+            </a>
+        </div>
+
+        <div class="card-body p-4" style="background-color: #f8f9fa !important;">
+            <div class="d-flex flex-wrap justify-content-center align-items-center" style="gap: 12px !important;">
+                
+                <a href="https://slides.com/jaimezambranachacon/bold/fullscreen" target="_blank" 
+                   class="btn shadow-sm d-flex align-items-center justify-content-center" 
+                   style="background-color: #003366 !important; color: #ffffff !important; border-radius: 50px !important; min-width: 200px !important; font-weight: 700 !important; border: none !important; padding: 12px 25px !important; text-decoration: none !important; flex-grow: 1 !important; max-width: 300px !important;">
+                   <i class="fas fa-user-graduate mr-2" style="color: #ffffff !important;"></i> PERFIL DOCENTE
+                </a>
+
+                <a href="https://wa.me/59172390001" target="_blank" 
+                   class="btn shadow-sm d-flex align-items-center justify-content-center" 
+                   style="background-color: #00aaff !important; color: #ffffff !important; border-radius: 50px !important; min-width: 180px !important; font-weight: 700 !important; border: none !important; padding: 12px 25px !important; text-decoration: none !important; flex-grow: 1 !important; max-width: 250px !important;">
+                   <i class="fab fa-whatsapp mr-2" style="color: #ffffff !important;"></i> WHATSAPP
+                </a>
+
+                <div class="d-flex justify-content-center" style="gap: 10px !important; flex-grow: 0 !important;">
+                    <a href="https://www.facebook.com/zambranachaconjaime" target="_blank" 
+                       class="btn shadow-sm d-flex align-items-center justify-content-center rounded-circle p-0" 
+                       style="background-color: #003366 !important; color: #ffffff !important; width: 48px !important; height: 48px !important; border: none !important;">
+                       <i class="fab fa-facebook-f" style="color: #ffffff !important;"></i>
+                    </a>
+
+                    <a href="https://www.youtube.com/tecnoprofe" target="_blank" 
+                       class="btn shadow-sm d-flex align-items-center justify-content-center rounded-circle p-0" 
+                       style="background-color: #003366 !important; color: #ffffff !important; width: 48px !important; height: 48px !important; border: none !important;">
+                       <i class="fab fa-youtube" style="color: #ffffff !important;"></i>
+                    </a>
+
+                    <a href="https://gitlab.com/tecnoprofe" target="_blank" 
+                       class="btn shadow-sm d-flex align-items-center justify-content-center rounded-circle p-0" 
+                       style="background-color: #003366 !important; color: #ffffff !important; width: 48px !important; height: 48px !important; border: none !important;">
+                       <i class="fab fa-gitlab" style="color: #ffffff !important;"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-4" style="background-color: #ffffff !important; border-top: 1px solid #dee2e6 !important;">
+            <div class="d-flex align-items-center mb-3">
+                <div style="width: 40px !important; height: 40px !important; background-color: #e7f3ff !important; border-radius: 10px !important; display: flex !important; align-items: center !important; justify-content: center !important; margin-right: 15px !important;">
+                    <i class="fas fa-lightbulb" style="color: #00aaff !important;"></i>
+                </div>
+                <h5 style="color: #003366 !important; font-weight: 800 !important; margin: 0 !important; letter-spacing: 0.5px !important; text-transform: uppercase !important;">
+                    Problema de Contexto
+                </h5>
+            </div>
+            <p style="color: #6c757d !important; font-size: 1.05rem !important; line-height: 1.7 !important; text-align: justify !important; margin-bottom: 0 !important;">
+                Dada la dificultad de asistir presencialmente a parques temáticos, este proyecto desarrolla una <strong>aplicación móvil 3D</strong> interactiva. Utilizando <strong>Blender y Unity</strong>, los estudiantes crearán experiencias de <strong>Realidad Aumentada</strong> que permitan explorar atracciones de forma inmersiva y remota.
+            </p>
         </div>
     </div>
-</div>`
+</div>
+
+`
         },
         {
             title: "Instrucciones Cuestionario (Alert Animado)",
