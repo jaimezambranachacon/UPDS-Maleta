@@ -3,84 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jimmy's UI Kit | Moodle</title>
+    <title>BOA | UI Kit Docente</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
     <style>
-        :root { --primary: #003366; --accent: #00aaff; --bg: #f4f7f9; --light-grey: #e9ecef; }
-        body { background-color: var(--bg); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        .header { background: linear-gradient(135deg, var(--primary), var(--accent)); color: white; padding: 40px 20px; border-bottom: 5px solid #cbd5e0; }
-        .card-snippet { border: none; border-radius: 15px; overflow: hidden; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .preview-section { background: white; padding: 30px; display: flex; justify-content: center; align-items: center; border-bottom: 1px solid var(--light-grey); }
-        .code-section { background: #2d3436; padding: 20px; position: relative; }
-        code { color: #81ecec; font-size: 0.85rem; }
-        .btn-copy { position: absolute; top: 10px; right: 10px; background: var(--accent); color: white; border: none; border-radius: 5px; padding: 5px 12px; font-size: 0.7rem; font-weight: bold; cursor: pointer; }
-        .btn-copy:active { transform: scale(0.95); }
+        :root {
+            --azul-boa: #003366;
+            --celeste-boa: #00aaff;
+            --plomo-claro: #f1f3f5;
+            --plomo-texto: #6c757d;
+        }
+
+        body { background-color: #ffffff; font-family: 'Segoe UI', sans-serif; }
+        
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes pulse-soft {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        .anim-fade-in { animation: fadeInUp 0.6s ease-out; }
+        .hover-grow { transition: transform 0.3s ease; }
+        .hover-grow:hover { transform: scale(1.03); }
+
+        /* Estilos del Catálogo */
+        .header-boa {
+            background: linear-gradient(135deg, var(--azul-boa), var(--celeste-boa));
+            color: white;
+            padding: 60px 20px;
+            border-bottom: 8px solid var(--plomo-claro);
+        }
+
+        .card-snippet {
+            border: 2px solid var(--plomo-claro);
+            border-radius: 20px;
+            margin-bottom: 50px;
+            overflow: hidden;
+            background: white;
+        }
+
+        .preview-label {
+            background: var(--plomo-claro);
+            color: var(--azul-boa);
+            font-weight: bold;
+            padding: 10px 20px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .preview-area { padding: 40px; border-bottom: 1px solid var(--plomo-claro); }
+
+        /* SECCIÓN DE CÓDIGO (LUMINOSA) */
+        .code-area {
+            background: #ffffff;
+            padding: 20px;
+            position: relative;
+            border-top: 1px solid var(--plomo-claro);
+        }
+
+        code {
+            color: #d63384; /* Color de código clásico pero en fondo claro */
+            font-size: 0.9rem;
+            display: block;
+            white-space: pre-wrap;
+        }
+
+        .btn-copy {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--azul-boa);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 5px 15px;
+            font-size: 0.75rem;
+            z-index: 10;
+        }
     </style>
 </head>
 <body>
 
-<div class="header text-center">
-    <h1 class="font-weight-bold">Mis Snippets para Moodle</h1>
-    <p class="lead">Librería de componentes elegantes, responsivos y listos para usar.</p>
+<div class="header-boa text-center">
+    <div class="container">
+        <h1 class="display-4 font-weight-bold">Sistema de Solicitud de Vuelos - BOA</h1>
+        <p class="lead">Repositorio de Componentes Visuales para Moodle</p>
+    </div>
 </div>
 
 <div class="container my-5">
-    <div class="row" id="catalog">
-        </div>
+    <div id="catalog-container"></div>
 </div>
 
 <script>
-    // 1. AQUÍ AGREGAS TUS NUEVOS PEDAZOS DE CÓDIGO FÁCILMENTE
+    // LISTA DE COMPONENTES
     const components = [
         {
-            title: "Botón WhatsApp Azul/Celeste",
-            html: `<a href="https://chat.whatsapp.com/HhxdY2mIZy46uYpeF9ATaP" target="_blank" class="btn shadow-lg p-3 d-flex align-items-center" style="background: linear-gradient(45deg, #003366, #00aaff); border-radius: 15px; color: white; border: none; min-width: 260px; text-decoration: none;">
-    <i class="fab fa-whatsapp fa-2x mr-3"></i>
-    <div class="text-left">
-        <small class="d-block" style="opacity:0.8; text-transform: uppercase; font-size: 0.6rem; font-weight: bold; letter-spacing: 1px;">Canal de comunicación</small>
-        <strong style="font-size: 1.2rem;">Grupo de la Clase</strong>
-    </div>
-</a>`
+            title: "WhatsApp Group (Efecto Pulse)",
+            html: `<div class="anim-fade-in" style="animation-delay: 0.2s;">
+    <a class="btn btn-lg d-flex align-items-center justify-content-center shadow" 
+       href="https://chat.whatsapp.com/HhxdY2mIZy46uYpeF9ATaP" 
+       target="_blank" 
+       style="background: linear-gradient(45deg, #003366, #00aaff); color: white; border-radius: 50px; padding: 15px 30px; border: none; animation: pulse-soft 2s infinite;">
+        <i class="fab fa-whatsapp fa-3x mr-3"></i>
+        <span style="font-size: 1.5rem; font-weight: 900;">GRUPO DE WHATSAPP</span>
+    </a>
+</div>`
         },
         {
-            title: "Banner de Tarea (Plomo y Azul)",
-            html: `<div class="p-4 shadow-sm d-flex align-items-center" style="background: #ffffff; border-left: 10px solid #003366; border-radius: 10px; border-top: 1px solid #dee2e6; border-right: 1px solid #dee2e6; border-bottom: 1px solid #dee2e6;">
-    <i class="fas fa-file-upload fa-3x mr-4" style="color: #cbd5e0;"></i>
-    <div>
-        <h4 style="color: #003366; margin: 0; font-weight: 800;">SUBIR PROYECTO FINAL</h4>
-        <p style="color: #6c757d; margin: 0; font-size: 0.9rem;">Formatos aceptados: PDF, ZIP (Máx. 20MB)</p>
+            title: "Ficha del Docente (Hover Grow)",
+            html: `<div class="card shadow hover-grow" style="border-radius: 20px; overflow: hidden; border: none; max-width: 800px; margin: auto;">
+    <div class="text-center p-3" style="background: #f8f9fa;">
+        <h3 style="color: #003366; font-weight: 800;">Simulador 3D & Realidad Aumentada</h3>
+    </div>
+    <a href="https://www.facebook.com/zambranachaconjaime" target="_blank">
+        <img src="https://live.staticflickr.com/65535/53442381820_96be63437b_k.jpg" class="img-fluid" alt="Banner">
+    </a>
+    <div class="p-4 text-center" style="background: #003366;">
+        <div class="d-flex flex-wrap justify-content-center" style="gap: 10px;">
+            <a href="#" class="btn btn-light font-weight-bold">DOCENTE</a>
+            <a href="#" class="btn btn-outline-light"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="btn btn-outline-light"><i class="fab fa-gitlab"></i></a>
+        </div>
+    </div>
+</div>`
+        },
+        {
+            title: "Instrucciones Cuestionario (Alert Animado)",
+            html: `<div class="card shadow-sm border-0 anim-fade-in" style="border-radius: 15px; border-left: 8px solid #00aaff !important;">
+    <div class="card-body">
+        <h2 class="text-primary font-weight-bold"><i class="fas fa-stopwatch mr-2"></i> Instrucciones del Ceto</h2>
+        <ul class="list-group list-group-flush mt-3">
+            <li class="list-group-item bg-transparent"><strong>📋 Preguntas:</strong> 20</li>
+            <li class="list-group-item bg-transparent"><strong>⏳ Tiempo:</strong> 45 min</li>
+        </ul>
+        <div class="alert mt-3 mb-0" style="background: #fff3cd; border: 1px dashed #ffeeba; animation: pulse-soft 3s infinite;">
+            <strong>⚠️ Atención:</strong> El tiempo no se detiene una vez iniciado.
+        </div>
+    </div>
+</div>`
+        },
+        {
+            title: "Duolingo Challenge (Glow Style)",
+            html: `<div class="p-5 text-center shadow-lg hover-grow" style="background: white; border-radius: 30px; border: 3px solid #00aaff;">
+    <h1 style="color: #003366; font-weight: 900;">🌍 ¡EL INGLÉS ES TU FUTURO!</h1>
+    <img src="https://1drv.ms/i/c/a12b273c30574b22/IQQoo29GEVrqT7aQJlptGX5KARoNJesDeIRtJKn5UL1iSs8?width=400" class="img-fluid my-4" style="max-height: 200px;">
+    <div class="p-3" style="background: #e7f3ff; border-radius: 15px;">
+        <h4 class="text-primary font-weight-bold">🏆 GANA 15 PUNTOS</h4>
+        <a href="https://www.duolingo.com/classroom/yqkrwj" target="_blank" class="btn btn-primary btn-block btn-lg mt-2">ACEPTAR RETO</a>
     </div>
 </div>`
         }
     ];
 
-    // 2. Función para renderizar el catálogo
-    const catalog = document.getElementById('catalog');
-    components.forEach((comp, index) => {
-        const id = `code-${index}`;
-        const card = `
-            <div class="col-12">
-                <div class="card-snippet">
-                    <div class="bg-light p-2 border-bottom text-muted small font-weight-bold ml-3 mt-2">${comp.title}</div>
-                    <div class="preview-section">${comp.html}</div>
-                    <div class="code-section">
-                        <button class="btn-copy" onclick="copyToClipboard('${id}')">COPIAR CÓDIGO</button>
-                        <pre class="mb-0"><code id="${id}">${escapeHtml(comp.html)}</code></pre>
-                    </div>
+    const container = document.getElementById('catalog-container');
+
+    components.forEach((c, i) => {
+        const id = `code-${i}`;
+        container.innerHTML += `
+            <div class="card-snippet">
+                <div class="preview-label">Visualización en Moodle</div>
+                <div class="preview-area">${c.html}</div>
+                <div class="preview-label">Código HTML (Fondo Claro)</div>
+                <div class="code-area">
+                    <button class="btn-copy" onclick="copy('${id}')">Copiar</button>
+                    <pre><code id="${id}">${escape(c.html)}</code></pre>
                 </div>
-            </div>`;
-        catalog.innerHTML += card;
+            </div>
+        `;
     });
 
-    function escapeHtml(text) {
-        return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    function escape(html) {
+        return html.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
     }
 
-    function copyToClipboard(id) {
+    function copy(id) {
         const text = document.getElementById(id).innerText;
         navigator.clipboard.writeText(text);
-        alert("¡Copiado! Pégalo en el HTML de Moodle.");
+        alert("¡Código copiado, Jimmy! Listo para Moodle.");
     }
 </script>
 
